@@ -29,10 +29,15 @@ public class CitoyenController {
         return new ResponseEntity<>(citoyen, HttpStatus.OK);
     }
 
-    @PostMapping("/add")
+    @PostMapping("/signup")
     public ResponseEntity<Citoyen> addCitoyen(@RequestBody Citoyen citoyen) {
         Citoyen newCitoyen = citoyenService.addCitoyen(citoyen);
         return new ResponseEntity<>(newCitoyen, HttpStatus.CREATED);
+    }
+    @PostMapping("/login")
+    public ResponseEntity<Citoyen> login(@RequestBody Citoyen citoyen) {
+        Citoyen authenticatedCitoyen = citoyenService.login(citoyen.getEmail(), citoyen.getPassword());
+        return new ResponseEntity<>(authenticatedCitoyen, HttpStatus.OK);
     }
 
     @PutMapping("/update")

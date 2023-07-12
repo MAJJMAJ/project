@@ -40,4 +40,9 @@ public class CitoyenService {
     public void deleteCitoyen(Long id){
         citoyenRepo.deleteCitoyenById(id);
     }
+    public Citoyen login(String email, String password) {
+        return (Citoyen) citoyenRepo.findByEmailAndPassword(email, password)
+                .orElseThrow(() -> new UserNotFoundException("Invalid email or password"));
+    }
+
 }
