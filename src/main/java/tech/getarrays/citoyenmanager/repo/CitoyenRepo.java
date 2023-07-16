@@ -12,5 +12,5 @@ public interface CitoyenRepo extends JpaRepository<Citoyen, Long> {
     Optional<Citoyen> findCitoyenById(Long id);
 
 
-    <T> Optional<T> findByEmailAndPassword(String email, String password);
+    Optional<Citoyen> findByEmailAndPassword(String email, String password);
 }

@@ -40,6 +40,8 @@ public class CitoyenController {
         return new ResponseEntity<>(authenticatedCitoyen, HttpStatus.OK);
     }
 
+
+
     @PutMapping("/update")
     public ResponseEntity<Citoyen> updateCitoyen(@RequestBody Citoyen citoyen) {
         Citoyen updateCitoyen = citoyenService.updateCitoyen(citoyen);

@@ -9,6 +9,7 @@ import tech.getarrays.citoyenmanager.repo.CitoyenRepo;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -41,8 +42,7 @@ public class CitoyenService {
         citoyenRepo.deleteCitoyenById(id);
     }
     public Citoyen login(String email, String password) {
-        return (Citoyen) citoyenRepo.findByEmailAndPassword(email, password)
-                .orElseThrow(() -> new UserNotFoundException("Invalid email or password"));
+        Optional<Citoyen> citoyenOptional = citoyenRepo.findByEmailAndPassword(email, password);
+        return citoyenOptional.orElse(null);
     }
-
 }

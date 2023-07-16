@@ -9,7 +9,9 @@ public class CitoyenmanagerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CitoyenmanagerApplication.class, args);
 	}
-/*
+
+
+	/*
 	@Bean
 	public CorsFilter corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
